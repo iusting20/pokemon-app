@@ -4,7 +4,10 @@
       <AppTitle></AppTitle>
 
       <div v-for="pokemon in pokemonData.results">
-        <PokemonCardOnHome :pk_name="pokemon.name"></PokemonCardOnHome>
+        <PokemonCardOnHome
+          :pk_name="pokemon.name"
+          :pk_url="pokemon.url"
+        ></PokemonCardOnHome>
       </div>
     </v-col>
   </v-row>
