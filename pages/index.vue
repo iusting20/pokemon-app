@@ -1,7 +1,9 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <div v-for="pokemon in pokemonList.results">
+      <AppTitle></AppTitle>
+
+      <div v-for="pokemon in pokemonData.results">
         <PokemonCardOnHome :pk_name="pokemon.name"></PokemonCardOnHome>
       </div>
     </v-col>
@@ -10,18 +12,20 @@
 
 <script>
 import PokemonCardOnHome from "~/components/PokemonCardOnHome.vue";
+import AppTitle from "../components/AppTitle.vue";
 export default {
   name: "IndexPage",
   data() {
     return {
-      pokemonList: "",
+      pokemonData: "",
+      pokemons: [],
     };
   },
   async fetch() {
-    this.pokemonList = await this.$axios.$get(
+    this.pokemonData = await this.$axios.$get(
       "https://pokeapi.co/api/v2/pokemon/"
     );
   },
-  components: { PokemonCardOnHome },
+  components: { PokemonCardOnHome, AppTitle },
 };
 </script>
