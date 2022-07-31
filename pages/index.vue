@@ -7,5 +7,13 @@
 <script>
 export default {
   name: "IndexPage",
+  data() {
+    return {
+      posts: "",
+    };
+  },
+  async fetch() {
+    this.posts = await this.$axios.$get("https://pokeapi.co/api/v2/pokemon/");
+  },
 };
 </script>
