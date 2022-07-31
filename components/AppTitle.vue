@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>POKEMON APP</h1>
+    <br />
   </div>
 </template>
 

@@ -1,16 +1,28 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <AppTitle></AppTitle>
+  <div>
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8" md="6">
+        <AppTitle></AppTitle>
 
-      <div v-for="pokemon in pokemonData.results">
-        <PokemonCardOnHome
-          :pk_name="pokemon.name"
-          :pk_url="pokemon.url"
-        ></PokemonCardOnHome>
-      </div>
-    </v-col>
-  </v-row>
+        <div v-for="pokemon in pokemonData.results">
+          <PokemonCardOnHome
+            :pk_name="pokemon.name"
+            :pk_url="pokemon.url"
+          ></PokemonCardOnHome>
+        </div>
+      </v-col>
+    </v-row>
+    <v-row justify="center" align="center">
+      <v-btn elevation="3" color="primary" class="prevNextButton"
+        >&lt PREV</v-btn
+      >
+      <v-btn elevation="3" color="primary" class="prevNextButton"
+        >NEXT &gt</v-btn
+      >
+    </v-row>
+    <br />
+    <br />
+  </div>
 </template>
 
 <script>
@@ -32,3 +44,10 @@ export default {
   components: { PokemonCardOnHome, AppTitle },
 };
 </script>
+
+<style scoped>
+.prevNextButton {
+  margin-left: 10em;
+  margin-right: 10em;
+}
+</style>
