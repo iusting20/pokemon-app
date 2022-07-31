@@ -1,19 +1,25 @@
 <template>
   <div>
     <v-card elevation="2" shaped>
-      <v-card-title>
-        {{ capitalizeFirstLetter(pk_name) }}
-      </v-card-title>
-      <!-- <v-card-text> {{ pokemonProfileInfo }} </v-card-text> -->
-      <v-card-text>
-        Types:
-        <li v-for="type in pokemonProfileInfo.types">
-          {{ type.type.name }}
-        </li>
-      </v-card-text>
-      <img :src="pokemonAvatar" />
+      <v-row>
+        <v-card-title>
+          {{ capitalizeFirstLetter(pk_name) }}
+        </v-card-title>
+      </v-row>
+      <v-row>
+        <v-col cols="6" sm="6" md="6">
+          <v-card-text>
+            Types:
+            <li v-for="type in pokemonProfileInfo.types">
+              {{ type.type.name }}
+            </li>
+          </v-card-text>
+        </v-col>
+        <v-col cols="6" sm="6" md="6">
+          <img :src="pokemonAvatar" />
+        </v-col>
+      </v-row>
     </v-card>
-    <br />
   </div>
 </template>
 
