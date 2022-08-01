@@ -13,12 +13,24 @@
       </v-col>
     </v-row>
     <v-row justify="center" align="center">
-      <v-btn elevation="3" color="primary" class="prevNextButton"
-        >&lt PREV</v-btn
-      >
-      <v-btn elevation="3" color="primary" class="prevNextButton"
-        >NEXT &gt</v-btn
-      >
+      <a :href="prevPageApiUrl">
+        <v-btn
+          :disabled="!!!prevPageApiUrl"
+          elevation="3"
+          color="primary"
+          class="prevNextButton"
+          >&lt PREV</v-btn
+        >
+      </a>
+      <a :href="nextPageApiUrl">
+        <v-btn
+          :disabled="!!!nextPageApiUrl"
+          elevation="3"
+          color="primary"
+          class="prevNextButton"
+          >NEXT &gt</v-btn
+        >
+      </a>
     </v-row>
     <br />
     <br />
@@ -34,12 +46,35 @@ export default {
     return {
       pokemonData: "",
       pokemons: [],
+      nextPageApiUrl: "",
+      prevPageApiUrl: "",
+      offset: 0,
     };
   },
   async fetch() {
+    if (this.$route.query.offset) {
+      this.offset = this.$route.query.offset;
+    }
+
     this.pokemonData = await this.$axios.$get(
-      "https://pokeapi.co/api/v2/pokemon/"
+      "https://pokeapi.co/api/v2/pokemon/?offset=" + this.offset + "&limit=20"
     );
+
+    // CONSTRUCTING BUTTON LINKS
+    if (this.pokemonData.previous != null) {
+      let linkPcsPrev = this.pokemonData.previous.split(
+        "https://pokeapi.co/api/v2/pokemon/"
+      );
+      this.prevPageApiUrl = "/" + linkPcsPrev[1];
+    }
+    //
+    // CONSTRUCTING BUTTON LINKS
+    if (this.pokemonData.next != null) {
+      let linkPcsNext = this.pokemonData.next.split(
+        "https://pokeapi.co/api/v2/pokemon/"
+      );
+      this.nextPageApiUrl = "/" + linkPcsNext[1];
+    }
   },
   components: { PokemonCardOnHome, AppTitle },
 };
