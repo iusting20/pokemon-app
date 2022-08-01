@@ -16,7 +16,11 @@
           :pokemonProfileInfo="pokemonProfileInfo"
         ></PokemonCardOnHomeType>
 
-        <v-col cols="4" sm="4" md="4"><v-btn elevation="3">MORE</v-btn></v-col>
+        <v-col cols="4" sm="4" md="4">
+          <a :href="'/profile?pokemonId=' + pokemonProfileInfo.id"
+            ><v-btn elevation="3">MORE</v-btn></a
+          >
+        </v-col>
       </v-row>
     </v-card>
     <br />
@@ -47,4 +51,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+</style>

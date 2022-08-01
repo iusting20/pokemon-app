@@ -85,4 +85,8 @@ export default {
   margin-left: 10em;
   margin-right: 10em;
 }
+
+a {
+  text-decoration: none;
+}
 </style>

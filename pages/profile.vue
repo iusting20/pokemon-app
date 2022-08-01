@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center"> </v-col>
+    <v-col class="text-center"> PROFILE </v-col>
   </v-row>
 </template>
 
