@@ -22,7 +22,9 @@
     </v-row>
 
     <v-row>
-      <v-col class="text-center"> INFO </v-col>
+      <v-col class="text-center">
+        <h2>INFO</h2>
+      </v-col>
     </v-row>
   </div>
 </template>
@@ -34,6 +36,8 @@ export default {
     return {
       pokemonId: this.$route.query.pokemonId,
       pk_name: "",
+      pokemonProfileInfo: "",
+      pokemonAvatar: "",
     };
   },
 
