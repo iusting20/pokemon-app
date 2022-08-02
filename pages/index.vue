@@ -57,7 +57,7 @@ export default {
     }
 
     this.pokemonData = await this.$axios.$get(
-      "https://pokeapi.co/api/v2/pokemon/?offset=" + this.offset + "&limit=20"
+      "https://pokeapi.co/api/v2/pokemon/?offset=" + this.offset + "&limit=5"
     );
 
     // CONSTRUCTING BUTTON LINKS
